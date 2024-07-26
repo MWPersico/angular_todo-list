@@ -1,0 +1,19 @@
+<div class="main-container">
+    <div class="main-content">
+        @if(!listEmpty){
+            {{todoList | json}}
+        }@else {
+            <div class="image-container">
+                <img src="../../../assets/images/task-list-null.png" alt="Imagem de bloco de anotações">
+            </div>
+            <div class="input-container">
+                @if(!todoList){
+                    <button (click)="initializeList()" aria-label="criar nova lista de tarefas" class="criar-btn">Crie uma lista de tarefas</button>
+                }@else {
+                    <app-create-task (taskCreated)="addTask($event)"></app-create-task>
+                }
+            </div>
+        }
+        
+    </div>
+</div>

@@ -1,0 +1,49 @@
+@use "../../../styles.scss";
+
+%flex{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:1;
+}
+
+.main-container{
+    @extend %flex;
+    min-height:100vh;
+    background-color:var(--black);
+
+    .main-content{
+        @extend %flex;
+        width:100%;
+        max-width:300px;
+
+        .image-container{
+            margin-bottom:20px;
+        }
+        
+        .input-container{
+            width:100%;
+            height:40px;
+            border-radius:50px;
+            overflow:hidden;
+
+            .criar-btn{
+                width:100%;
+                height:100%;
+                background-color:var(--primary);
+                border:none;
+                font-size:1.05em;
+                cursor:pointer;
+                transition:background-color .3s ease, color .3s ease;
+                
+                &:hover{
+                    background-color:var(--primary-010);
+                    color:var(--white);
+                }
+            }
+        }
+
+        
+    }
+}
