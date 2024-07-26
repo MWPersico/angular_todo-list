@@ -30,10 +30,32 @@
 
     h2{color:var(--white);font-size:1.2em;}
 
+    .todo-list-header,
+    .todo-list-content,
+    .todo-list-footer {
+      width: 100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content: space-evenly;
+    }
+    
+    .todo-list-header,.todo-list-footer{
+        flex:1;
+    }
+
     .todo-list-content{
+        justify-content:flex-start;
         flex:5;
         border:2px solid var(--black-010);
         border-width: 2px 0;
+
+        .todo-list-section{
+            margin:10px 0;
+
+            h2{font-size:0.9em}
+            ul{list-style: none;li{margin:6px 2px;}}
+        }
     }
 
     .todo-list-footer{
@@ -53,20 +75,6 @@
                 background-color: var(--red-010);
             }
         }
-    }
-
-    .todo-list-header,
-    .todo-list-content,
-    .todo-list-footer {
-      width: 100%;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content: space-evenly;
-    }
-    
-    .todo-list-header,.todo-list-footer{
-        flex:1;
     }
   }
 

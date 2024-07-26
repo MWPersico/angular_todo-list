@@ -1,0 +1,5 @@
+<div class="task-container">
+    <button [style.backgroundColor]="task.checked?'var(--primary)':'var(--white)'" (click)="toggleStatus()" aria-label="marcar como concluida/pendente" class="check-task-btn"></button>
+    <input type="text" class="task-input" #taskInput="ngModel" [(ngModel)]="task.value" [value]="task.value">
+    <button (click)="deleteTask()" aria-label="clique para deletar uma tarefa" class="delete-task-btn"><i class="fa-solid fa-x"></i></button>
+</div>
