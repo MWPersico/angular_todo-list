@@ -14,13 +14,18 @@ export class TodoComponent {
   listEmpty = true;
   todoList!:ITask[];
 
+  constructor(){
+    this.initializeList();
+    this.addTask({value:"", id:1,checked:false})
+  }
+
   initializeList(){
     this.todoList = [];
+    this.listEmpty = true;
   }
 
   addTask(task:ITask){
     this.todoList.push(task);
-
-    if(this.listEmpty)this.listEmpty=false;
+    this.listEmpty=false;
   }
 }

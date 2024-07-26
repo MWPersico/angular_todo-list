@@ -1,49 +1,96 @@
 @use "../../../styles.scss";
 
-%flex{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    gap:1;
+%flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.main-container{
+.main-container {
+  @extend %flex;
+  min-height: 100vh;
+  background-color: var(--black);
+
+  .create-list-container {
     @extend %flex;
+    justify-content: space-around;
+    width: 100%;
+
+    .image-container {
+      margin-bottom: 20px;
+    }
+  }
+
+  .todo-list-container{
+    @extend %flex;
+    justify-content:space-between;
     min-height:100vh;
-    background-color:var(--black);
+    width:100%;
 
-    .main-content{
-        @extend %flex;
-        width:100%;
-        max-width:300px;
+    h2{color:var(--white);font-size:1.2em;}
 
-        .image-container{
-            margin-bottom:20px;
-        }
-        
-        .input-container{
-            width:100%;
-            height:40px;
+    .todo-list-content{
+        flex:5;
+        border:2px solid var(--black-010);
+        border-width: 2px 0;
+    }
+
+    .todo-list-footer{
+        .limpar-btn{
+            width: 100%;
+            max-width:300px;
+            height: 40px;
+            background-color: var(--red);
+            border: none;
             border-radius:50px;
-            overflow:hidden;
+            font-size: 1.05em;
+            cursor: pointer;
+            color:white;
+            transition: background-color 0.3s ease, color 0.3s ease;
 
-            .criar-btn{
-                width:100%;
-                height:100%;
-                background-color:var(--primary);
-                border:none;
-                font-size:1.05em;
-                cursor:pointer;
-                transition:background-color .3s ease, color .3s ease;
-                
-                &:hover{
-                    background-color:var(--primary-010);
-                    color:var(--white);
-                }
+            &:hover {
+                background-color: var(--red-010);
             }
         }
-
-        
     }
+
+    .todo-list-header,
+    .todo-list-content,
+    .todo-list-footer {
+      width: 100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content: space-evenly;
+    }
+    
+    .todo-list-header,.todo-list-footer{
+        flex:1;
+    }
+  }
+
+  
+  .input-container {  
+    max-width: 300px;
+    width: 100%;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+
+    .criar-btn {
+      width: 100%;
+      height: 100%;
+      background-color: var(--primary);
+      border: none;
+      font-size: 1.05em;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: var(--primary-010);
+        color: var(--white);
+      }
+    }
+  }
 }
