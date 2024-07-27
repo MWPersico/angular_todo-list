@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, ElementRef, EventEmitter, Output } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
 import ITask from '../../interfaces/ITask';
 
 @Component({
@@ -14,12 +14,13 @@ export class CreateTaskComponent {
   task!:ITask;
   @Output() taskCreated = new EventEmitter<ITask>();
   
-  createTask(){
+  createTask(input:NgModel){
     this.task = {
       id:new Date().valueOf(),
       value:this.taskValue,
       checked:false
     }
+    this.taskValue="";
     this.taskCreated.emit(this.task);
   }
 }

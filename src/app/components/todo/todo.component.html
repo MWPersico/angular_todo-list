@@ -8,25 +8,29 @@
       </div>
     </div>
     <div class="todo-list-content">
-        <div class="todo-list-section">
-            <h2>Pendências</h2>
-            <ul>
-                @for(task of getPendentes(); track task.id){
-                    <li><app-task-item [task]="task" (hasChanged)="updateList()"></app-task-item></li>
-                }
-            </ul>
-        </div>
-        <div class="todo-list-section">
-            <h2>Concluídas</h2>
-            <ul>
-                @for(task of getConcluidas(); track task.id){
-                    <li><app-task-item [task]="task" (hasChanged)="updateList()"></app-task-item></li>
-                }
-            </ul>
-        </div>
+        @if(getPendentes().length){
+            <div class="todo-list-section">
+                <h2>Pendências</h2>
+                <ul>
+                    @for(task of getPendentes(); track task.id){
+                        <li><app-task-item [task]="task" (hasChanged)="updateList()"></app-task-item></li>
+                    }
+                </ul>
+            </div>
+        }
+        @if(getConcluidas().length){
+            <div class="todo-list-section">
+                <h2>Concluídas</h2>
+                <ul>
+                    @for(task of getConcluidas(); track task.id){
+                        <li><app-task-item [task]="task" (hasChanged)="updateList()"></app-task-item></li>
+                    }
+                </ul>
+                </div>
+            }
     </div>
     <div class="todo-list-footer">
-      <button (click)="initializeList()" aria-label="Limpar lista de tarefas" class="limpar-btn">
+      <button (click)="clearList()" aria-label="Limpar lista de tarefas" class="limpar-btn">
         Deletar todos os itens
       </button>
     </div>
